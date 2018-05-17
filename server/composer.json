@@ -1,0 +1,7 @@
+{
+    "name": "mlh14_000/server",
+    "description": "Todos pro server",
+    "require": {
+        "slim/slim": "^3.0"
+    }
+}
