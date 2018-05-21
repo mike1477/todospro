@@ -42,19 +42,32 @@ $container['db'] = function($container) use ($capsule){
    return $capsule;
 };
 
-$container['csrf'] = function ($container) {
-   return new \Slim\Csrf\Guard;
-};
 
-$app->add(new \App\Middleware\CsrfViewMiddleware($container));
-$app->add($container->csrf);
+// Pull in all the routes
+require __DIR__ . "/app/Routes/Users.php";
+
+
+$app->add(function ($req, $res, $next) {
+ $response = $next($req, $res);
+ return $response
+         ->withHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
+         ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+         ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+});
 
 // Define app routes
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
+$app->get('/hello/{id}', function (Request $request, Response $response, array $args) {
 
-    $foo = $request->getAttribute('foo');
+    $id = $args['id']; 
+    $user = $this->db->table('users')->where('id', $id)->first();
+    return $response->withJson($user, 200);
+});
+
+$app->post('/hello', function (Request $request, Response $response) {
+    $title  = $request->getParam('title');
+  //  $foo = $request->getAttribute('foo');
 	//$user = $this->db->table('users')->where('id', $id)->first();
-    return $response->write("Hello " . $foo);
+    return $response->write( $title );
 });
 
 // Run app
