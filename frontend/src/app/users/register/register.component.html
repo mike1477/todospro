@@ -1,3 +1,39 @@
-<p>
-  register works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <h3>Register Form</h3>
+          <form (ngSubmit) = "register()">
+            <div class="form-group row">
+              <label for="username" class="col-sm-3 col-form-label">Username</label>
+              <div class="col-sm-9">
+                <input type="text" [(ngModel)]="username" name="username" class="form-control" id="username" placeholder="Username">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 col-form-label">Name</label>
+              <div class="col-sm-9">
+                <input type="text" [(ngModel)]="name" name="name" class="form-control" id="name" placeholder="Name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="password" class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="password2" class="col-sm-3 col-form-label">Confirm Password</label>
+              <div class="col-sm-9">
+                <input type="password" [(ngModel)]="password2" name="password2" class="form-control" id="password2" placeholder="Confirm Password">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-warning">Register</button>
+              </div>
+            </div>
+          </form>
+       </div>
+   </div>  
+</div>
