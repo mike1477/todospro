@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { FeedbackService } from "../feedback/feedback.service";
 import { ApiService } from "./api.service";
 import { User } from "./user.model";
+import { LoggedInService } from "./logged-in.service";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,9 @@ import { User } from "./user.model";
 export class UsersService {
 
   constructor(public fb: FeedbackService,
-              private api: ApiService) { }
+              private api: ApiService,
+              private auth: LoggedInService,
+              private route: Router) { }
 
   private user : User;
 
@@ -28,19 +32,37 @@ export class UsersService {
      //Start loader
      this.fb.addMessage("Checking Form Information");
 
-    //Give user feedback
+     this.api.register(newUserInfo)
+     .subscribe();
 
-    //Make http call
   }
 
   editUser(editUser){
     //Start loader
+    // if(this.user === undefined){
+    //   this.fb.addMessage("Please sign in to update account");
+    //   return;
+    // }
+    // if(editUser.password != editUser.password2){
+    //   this.fb.addMessage("Passwords don't match");
+    //   return;
+    // }
+    let updateUser = {
+      id: this.user.id,
+      name: editUser.name,
+      password: editUser.password
+    }
     this.fb.addMessage("Checking Form Information");
 
-    //Give user feedback
-
-    //Make http call
+    this.api.updateUser(updateUser)
+     .subscribe();
   }
 
+  logout(){
+    this.fb.addMessage("You are logged out");
+    this.user = null;
+    this.auth.setlogged(false);
+    this.route.navigate(['/login']);
+  }
 
 }
