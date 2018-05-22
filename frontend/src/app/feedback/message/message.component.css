@@ -1,0 +1,9 @@
+.message{
+    background-color: beige;
+    padding-top: 10px;
+    padding-bottom:8px;
+}
+.message p{
+    margin-bottom: 0px;
+    font-size: 1em;
+}
