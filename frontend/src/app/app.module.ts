@@ -10,6 +10,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MessageComponent } from './feedback/message/message.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { PasswordsMatchDirective } from './users/passwords-match.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from  '@angular/common/http';
     RegisterComponent,
     EditUserComponent,
     HeaderComponent,
-    MessageComponent
+    MessageComponent,
+    PasswordsMatchDirective
   ],
   imports: [
     BrowserModule,

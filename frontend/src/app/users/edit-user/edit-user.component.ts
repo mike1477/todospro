@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from "../users.service";
+import { User, EditUser } from "./user";
+import{ NgForm } from '@angular/forms';
+import { LoggedInService } from "../logged-in.service";
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-edit-user',
@@ -8,23 +13,41 @@ import { UsersService } from "../users.service";
 })
 export class EditUserComponent implements OnInit {
 
-  constructor(private us: UsersService) { }
+  constructor(private us: UsersService,
+              private auth : LoggedInService,
+              private route : Router) { }
 
   ngOnInit() {
-  }
   
-  private name : string;
-  private password : string;
-  private password2 : string;
+  this.currentUser = this.us.getUser();
+  this.checkIfLoggedIn();
+  }
+  public currentUser;
+  public updatedUser : User;
 
-  editUser(){
+  user : EditUser = {
+    password: '',
+    password2: '',
+    name: ''
+}
+
+ checkIfLoggedIn(){
+   if(this.auth.getLogged()){
+    this.user.name = this.currentUser.name;
+   }else{
+    this.route.navigate(['/login'])
+   }
+ }
+  
+
+  saveEdit(editUser: NgForm):void{
     
-    let updatedInfo = {
-      name : this.name,
-      password: this.password,
-      password2 : this.password2
-    }
-
-    this.us.editUser(updatedInfo);
+    this.updatedUser = {
+      id : this.currentUser.id,
+      username : this.currentUser.username,
+      name : this.user.name,
+      password : this.user.password,
+     }
+     this.us.editUser(this.updatedUser);
   }
 }

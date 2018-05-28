@@ -30,7 +30,7 @@ export class UsersService {
 
   register(newUserInfo){
      //Start loader
-     this.fb.addMessage("Checking Form Information");
+     this.fb.addMessage("Creating new profile for " + newUserInfo.username);
 
      this.api.register(newUserInfo)
      .subscribe();
@@ -38,23 +38,10 @@ export class UsersService {
   }
 
   editUser(editUser){
-    //Start loader
-    // if(this.user === undefined){
-    //   this.fb.addMessage("Please sign in to update account");
-    //   return;
-    // }
-    // if(editUser.password != editUser.password2){
-    //   this.fb.addMessage("Passwords don't match");
-    //   return;
-    // }
-    let updateUser = {
-      id: this.user.id,
-      name: editUser.name,
-      password: editUser.password
-    }
+ 
     this.fb.addMessage("Checking Form Information");
 
-    this.api.updateUser(updateUser)
+    this.api.updateUser(editUser)
      .subscribe();
   }
 
@@ -63,6 +50,10 @@ export class UsersService {
     this.user = null;
     this.auth.setlogged(false);
     this.route.navigate(['/login']);
+  }
+
+  getUser(){
+    return this.user;
   }
 
 }
