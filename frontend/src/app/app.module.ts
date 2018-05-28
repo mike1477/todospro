@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgProgressModule } from '@ngx-progressbar/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './users/login/login.component';
@@ -26,7 +27,8 @@ import { PasswordsMatchDirective } from './users/passwords-match.directive';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgProgressModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

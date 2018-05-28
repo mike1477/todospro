@@ -18,41 +18,41 @@ export class UsersService {
   private user : User;
 
   login(userInfo){
-     //Start loader
-     this.fb.addMessage("Authenticating Information");
-     
+     this.fb.startbar();
+     this.fb.addMessage("Authenticating Information");    
      this.api.login(userInfo)
      .subscribe(user => this.user = user);
-
-     //Stop loader
+     this.fb.donebar();
     
   }
 
   register(newUserInfo){
-     //Start loader
+     this.fb.startbar();
      this.fb.addMessage("Creating new profile for " + newUserInfo.username);
-
      this.api.register(newUserInfo)
      .subscribe();
-
+     this.fb.donebar();
   }
 
   editUser(editUser){
- 
+    this.fb.startbar();
     this.fb.addMessage("Checking Form Information");
-
     this.api.updateUser(editUser)
      .subscribe();
+    this.fb.donebar();
   }
 
   logout(){
+    this.fb.startbar();
     this.fb.addMessage("You are logged out");
     this.user = null;
     this.auth.setlogged(false);
     this.route.navigate(['/login']);
+    this.fb.donebar();
   }
 
   getUser(){
+    
     return this.user;
   }
 
