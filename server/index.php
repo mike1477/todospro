@@ -45,7 +45,8 @@ $container['db'] = function($container) use ($capsule){
 
 // Pull in all the routes
 require __DIR__ . "/app/Routes/Users.php";
-
+require __DIR__ . "/app/Routes/Projects.php";
+require __DIR__ . "/app/Routes/Tasks.php";
 
 $app->add(function ($req, $res, $next) {
  $response = $next($req, $res);
@@ -55,20 +56,6 @@ $app->add(function ($req, $res, $next) {
          ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 });
 
-// Define app routes
-$app->get('/hello/{id}', function (Request $request, Response $response, array $args) {
-
-    $id = $args['id']; 
-    $user = $this->db->table('users')->where('id', $id)->first();
-    return $response->withJson($user, 200);
-});
-
-$app->post('/hello', function (Request $request, Response $response) {
-    $title  = $request->getParam('title');
-  //  $foo = $request->getAttribute('foo');
-	//$user = $this->db->table('users')->where('id', $id)->first();
-    return $response->write( $title );
-});
 
 // Run app
 $app->run();;
