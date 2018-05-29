@@ -1,3 +1,48 @@
-<p>
-  project-create works!
-</p>
+<div  class="card text-center">
+  <div class="card-header">
+    Create new project
+  </div>
+    <div class="card-body todo-cards">
+     <form>
+       <div class="form-group row">
+         <label for="ProjectName" class="col-sm-12 col-form-label card-text text-left">Project Name</label>
+         <div class="col-sm-12">
+           <input type="text" required id="title" name="title" value="title"       
+             class="form-control" placeholder="Project Name">
+           <div class="text-danger">        
+              Project title is required
+           </div>
+         </div>
+       </div>
+       <div class="form-group row">
+         <label for="projectDescription" class="col-sm-12 col-form-label card-text text-left">Description</label>
+         <div class="col-sm-12">
+           <textarea rows="5" class="form-control" value="description"
+             id="description"  name="description" placeholder="Project Description">
+           </textarea>
+         </div>
+       </div>
+       <div class="form-group row">
+         <div class="col-sm-12">
+           <select class="form-control form-control-sm">
+             <option class="bg-primary text-white">Dark Blue</option>
+             <option class="bg-secondary text-white">Grey</option>
+             <option class="bg-success text-white">Green</option>
+             <option class="bg-danger text-white">Red</option>
+             <option class="bg-info text-white">Light Blue</option>
+             <option class="bg-warning text-dark">Yellow</option>
+          </select>
+         </div>
+       </div>
+       <div class="form-group row">
+         <div class="col-sm-12">
+           <button type="submit" class="btn btn-outline-warning">Create Project</button>
+         </div>
+       </div>
+     </form>
+   </div>
+    <div class="card-footer text-muted">
+      Add new Project to Projects
+    </div>
+
+ </div>

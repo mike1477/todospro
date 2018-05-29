@@ -1,0 +1,7 @@
+.boards-list{
+    border: none;
+  }
+  .boards-list li{
+    border: none;
+    margin-top: 10px;
+  }

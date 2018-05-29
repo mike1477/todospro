@@ -1,3 +1,46 @@
-<p>
-  project-edit works!
-</p>
+ <div class="row">
+    <section class="col-md-12">
+      <div  class="card text-center">
+        <div class="card-header">
+          Edit Project
+        </div>
+        <div class="card-body">
+          <form >
+            <div class="form-group row">
+              <label for="ProjectName" class="col-sm-12 col-form-label card-text text-left">Project Name</label>
+              <div class="col-sm-12">
+                <input type="text" class="form-control" id="ProjectName" name="title" 
+                 value="project name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="ProjectDescription" class="col-sm-12 col-form-label card-text text-left">Description</label>
+              <div class="col-sm-12">
+                <textarea name="description" rows="5" class="form-control" id="ProjectDescription" value="Project name" ></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <select class="form-control form-control-sm">
+                  <option class="bg-primary text-white">Dark Blue</option>
+                  <option class="bg-secondary text-white">Grey</option>
+                  <option class="bg-success text-white">Green</option>
+                  <option class="bg-danger text-white">Red</option>
+                  <option class="bg-info text-white">Light Blue</option>
+                  <option class="bg-warning text-dark">Yellow</option>
+               </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <button type="submit" class="btn btn-outline-warning">Edit Project</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-muted">
+          Edit Project
+        </div>
+      </div>
+    </section>
+ </div>
