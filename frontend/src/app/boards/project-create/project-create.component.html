@@ -1,42 +1,46 @@
-<div  class="card text-center">
+<div  class="card text-left">
   <div class="card-header">
     Create new project
   </div>
     <div class="card-body todo-cards">
-     <form>
+     <form #createProjectForm="ngForm" (ngSubmit)="newProject()">
+
        <div class="form-group row">
-         <label for="ProjectName" class="col-sm-12 col-form-label card-text text-left">Project Name</label>
-         <div class="col-sm-12">
-           <input type="text" required id="title" name="title" value="title"       
-             class="form-control" placeholder="Project Name">
-           <div class="text-danger">        
+         <label for="ProjectName" class="col-lg-3 col-form-label card-text">Project Name</label>
+         <div class="col-lg-9">
+           <input type="text" required id="title" name="title" value="title" [(ngModel)]="np.title"      
+             class="form-control" placeholder="Project Name" #title="ngModel">
+           <div class="error" *ngIf="title.errors?.required && title.touched">        
               Project title is required
            </div>
          </div>
        </div>
+
        <div class="form-group row">
-         <label for="projectDescription" class="col-sm-12 col-form-label card-text text-left">Description</label>
-         <div class="col-sm-12">
-           <textarea rows="5" class="form-control" value="description"
+         <label for="projectDescription" class="col-lg-3 col-form-label card-text">Description</label>
+         <div class="col-lg-9">
+           <textarea rows="5" class="form-control" value="description"[(ngModel)]="np.description"
              id="description"  name="description" placeholder="Project Description">
            </textarea>
          </div>
        </div>
+
        <div class="form-group row">
-         <div class="col-sm-12">
-           <select class="form-control form-control-sm">
-             <option class="bg-primary text-white">Dark Blue</option>
-             <option class="bg-secondary text-white">Grey</option>
-             <option class="bg-success text-white">Green</option>
-             <option class="bg-danger text-white">Red</option>
-             <option class="bg-info text-white">Light Blue</option>
-             <option class="bg-warning text-dark">Yellow</option>
+         <label for="projecttheme" class="col-lg-3 col-form-label card-text">Theme Color</label>
+         <div class="col-lg-9">
+           <select class="form-control form-control-sm" [(ngModel)]="np.color" name="color">
+             <option class="bg-primary text-white" value="primary">Dark Blue</option>
+             <option class="bg-secondary text-white" value="secondary">Grey</option>
+             <option class="bg-success text-white"  value="success">Green</option>
+             <option class="bg-danger text-white" value="danger">Red</option>
+             <option class="bg-info text-white" value="info">Light Blue</option>
+             <option class="bg-warning text-dark" value="warning">Yellow</option>
           </select>
          </div>
        </div>
        <div class="form-group row">
-         <div class="col-sm-12">
-           <button type="submit" class="btn btn-outline-warning">Create Project</button>
+         <div class="col-sm-12 text-center" >
+           <button type="submit" class="btn btn-outline-warning" [disabled]="createProjectForm.invalid">Create Project</button>
          </div>
        </div>
      </form>
@@ -46,3 +50,4 @@
     </div>
 
  </div>
+

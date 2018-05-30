@@ -1,36 +1,54 @@
-<div class="row">
-    <section class="col-md-12">
-      <div  class="card text-center">
-        <div class="card-header">
-          Edit Task
-        </div>
-        <div class="card-body">
-          <form >
-            <div class="form-group row">
-              <label for="TaskName" class="col-sm-12 col-form-label card-text text-left">Task Name</label>
-              <div class="col-sm-12">
-                <input type="text" class="form-control" id="TaskName" name="title" 
-                 value="Task name">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="TaskDescription" class="col-sm-12 col-form-label card-text text-left">Description</label>
-              <div class="col-sm-12">
-                <textarea name="description" rows="5" class="form-control" id="TaskDescription" value="Task name" ></textarea>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <button type="submit" class="btn btn-outline-warning">Edit Task</button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="card-footer text-muted">
-          Edit Task
-        </div>
+<div  class="card text-left">
+    <div class="card-header">
+      Edit Task
+    </div>
+      <div class="card-body todo-cards">
+       <form #editTaskForm="ngForm" (ngSubmit)="editTask()">
+  
+         <div class="form-group row">
+           <label for="title" class="col-lg-3 col-form-label card-text">Edit Title</label>
+           <div class="col-lg-9">
+             <input type="text" required id="title" name="title"  [(ngModel)]="np.title"      
+               class="form-control" placeholder="Task Name" #title="ngModel">
+             <div class="error" *ngIf="title.errors?.required && title.touched">        
+                Task title is required
+             </div>
+           </div>
+         </div>
+  
+         <div class="form-group row">
+           <label for="taskDescription" class="col-lg-3 col-form-label card-text">Description</label>
+           <div class="col-lg-9">
+             <textarea rows="5" class="form-control" value="description"[(ngModel)]="np.description"
+               id="description"  name="description" placeholder="Project Description">
+             </textarea>
+           </div>
+         </div>
+  
+         <div class="form-group row">
+           <label for="tasktheme" class="col-lg-3 col-form-label card-text">Theme Color</label>
+           <div class="col-lg-9">
+             <select class="form-control form-control-sm" [(ngModel)]="np.color" name="color">
+               <option class="bg-primary text-white" value="primary">Dark Blue</option>
+               <option class="bg-secondary text-white" value="secondary">Grey</option>
+               <option class="bg-success text-white"  value="success">Green</option>
+               <option class="bg-danger text-white" value="danger">Red</option>
+               <option class="bg-info text-white" value="info">Light Blue</option>
+               <option class="bg-warning text-dark" value="warning">Yellow</option>
+            </select>
+           </div>
+         </div>
+         <div class="form-group row">
+           <div class="col-sm-12 text-center" >
+             <button type="submit" class="btn btn-outline-warning" [disabled]="editTaskForm.invalid">Update Project</button>
+           </div>
+         </div>
+       </form>
+     </div>
+      <div class="card-footer text-muted">
+        Update Task
       </div>
-    </section>
- </div>
-
+  
+   </div>
+  
+  

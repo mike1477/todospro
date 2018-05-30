@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from "../models";
 
 @Component({
   selector: 'app-project-create',
@@ -10,6 +11,16 @@ export class ProjectCreateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  np: Project = {
+    title: '',
+    description: '',
+    theme_color: 'primary'
+  }
+
+  newProject(){
+    //Send this.NewProject to service
   }
 
 }
