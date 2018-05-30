@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from "../models";
+import { ColorThemeService } from "../color-theme.service";
 
 @Component({
   selector: 'app-task-create',
@@ -8,16 +9,21 @@ import { Project } from "../models";
 })
 export class TaskCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ct: ColorThemeService) { }
 
   ngOnInit() {
   }
 
+  colorThemes = this.ct.colorThemes;
+
+
+
   np: Project = {
+    color_id : 1,
     title: '',
     description: '',
-    theme_color: 'primary'
   }
+
 
   newProject(){
     //Send this.NewProject to service

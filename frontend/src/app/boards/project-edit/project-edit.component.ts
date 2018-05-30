@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from "../models";
+import { ColorThemeService } from "../color-theme.service";
 
 @Component({
   selector: 'app-project-edit',
@@ -8,20 +9,21 @@ import { Project } from "../models";
 })
 export class ProjectEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ct: ColorThemeService) { }
 
   ngOnInit() {
   }
 
   //Get Project from service
   // np : Project = service.project
+
+  colorThemes = this.ct.colorThemes;
   
   np: Project = {
-    title: 'test',
-    description: 'test',
-    theme_color: 'info'
+    color_id : 1,
+    title: '',
+    description: '',
   }
-
   editProject(){
     //Send this.Project to service
   }
