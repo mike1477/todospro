@@ -32,7 +32,7 @@ export class ApiService {
  login (user): Observable<User> {
   return this.http.post<User>(this.loginUrl, user, httpOptions).pipe(
     tap((user: User) => this.fb.addMessage(`Welcome Back ${user.name}`)),
-    tap(() => this.route.navigate(['/'])),
+    tap(() => this.route.navigate(['/overview'])),
     tap(() => this.auth.setlogged(true)),
     catchError(this.handleError<User>('Login'))
   );

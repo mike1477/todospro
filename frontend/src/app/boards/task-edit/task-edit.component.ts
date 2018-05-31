@@ -22,6 +22,7 @@ export class TaskEditComponent implements OnInit {
 
 
   np: Project = {
+    id: 1,
     color_id : 1,
     title: '',
     description: '',

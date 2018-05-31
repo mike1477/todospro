@@ -1,14 +1,13 @@
 <div class="card text-white bg-danger mb-3" >
   <div class="card-header">Project Details</div>
   <div class="card-body">
-    <h5 class="card-title">Project Title</h5>
-    <p class="card-text">Project Description</p>
-    <p>Project Id</p>
+    <h5 class="card-title">{{project.currentProject.title}}</h5>
+    <p class="card-text">{{project.currentProject.description}}</p>
   </div>
   <div class="card-footer">
-    <a routerLink=""  title ="Create new task"><i class="fas fa-plus-square"></i></a>
-    <a routerLink=""  data-toggle="tooltip" data-placement="bottom" title="Edit Project"><i class="fas fa-edit"></i></a>
-    <a title ="Delete Project"><i class="fas fa-trash"></i></a>
+    <a   title ="Create new task"><i class="fas fa-plus-square"></i></a>
+    <a routerLink="/edit" (click)="passProject(project.currentProject)"  data-toggle="tooltip" data-placement="bottom" title="Edit Project"><i class="fas fa-edit"></i></a>
+    <a title ="Delete Project" routerLink="/overview" (click)="deleteProject(project.currentProject)"><i class="fas fa-trash"></i></a>
   </div>
 </div>
 <section class="row">

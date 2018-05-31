@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BoardsService } from "../boards.service";
 
 @Component({
   selector: 'app-task-view',

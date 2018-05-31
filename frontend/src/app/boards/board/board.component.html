@@ -7,16 +7,20 @@
         <div class="card-header">
           All Projects
         </div>
-        <div class="card-body todo-cards">
+        <div class="card-body todo-cards board-cards">
           <ul class="list-group list-group-flush boards-list">
-            <li class="list-group-item border-left border-primary text-left">
-              <a routerLink="" title ="View Project"><i class="fas fa-search"></i></a>
-            </li>
+
+            <li class="list-group-item border-left border-primary text-left" 
+            *ngFor="let project of boards.allProjects">
+            {{project.title}}
+              <a routerLink="/view" (click)="viewProject(project)" title ="View Project"><i class="fas fa-search"></i></a>
+          </li>
           </ul>
         </div>
         <div class="card-footer text-muted">
-          Total Boards <span class="badge badge-warning">10</span>
+          Total Projects <span class="badge badge-warning">{{boards.allProjects.length}}</span>
         </div>
       </div>
     </section>
   </div>
+
