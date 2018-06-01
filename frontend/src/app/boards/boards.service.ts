@@ -21,6 +21,7 @@ export class BoardsService{
   updateProject: EditProject;
   currentProject : any; 
   allProjects: AllProjects[];
+  success : boolean = false;
 
 
   returnProjects(){
@@ -89,7 +90,7 @@ export class BoardsService{
      this.fb.donebar();
   }
 
-  deleteProject(deleteProject){
+  deleteProject(){
     this.fb.startbar();
     if(this.user.getUser() === undefined){
       this.fb.addMessage("Need to sign in before delete project");
@@ -97,14 +98,15 @@ export class BoardsService{
       this.fb.donebar();
       return;
     }
-    let id = deleteProject.id;
+
+    let id = this.currentProject.id;
     this.fb.addMessage("deleting Project");
    
     this.api.deleteProject(id)
-     .subscribe();
+     .subscribe(() => this.success = true);
   
-    this.getAllProjects(); 
+   
    this.fb.donebar();
-   this.fb.addMessage("Project Delete");
+   
   }
 }

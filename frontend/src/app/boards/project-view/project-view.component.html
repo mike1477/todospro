@@ -5,9 +5,27 @@
     <p class="card-text">{{project.currentProject.description}}</p>
   </div>
   <div class="card-footer">
-    <a   title ="Create new task"><i class="fas fa-plus-square"></i></a>
-    <a routerLink="/edit" (click)="passProject(project.currentProject)"  data-toggle="tooltip" data-placement="bottom" title="Edit Project"><i class="fas fa-edit"></i></a>
-    <a title ="Delete Project" routerLink="/overview" (click)="deleteProject(project.currentProject)"><i class="fas fa-trash"></i></a>
+
+    <a class="btn btn-outline-light navbut" title ="Create new task">
+      New Task <i class="fas fa-plus"></i>
+    </a>
+
+    <a routerLink="/edit" class="btn btn-outline-light navbut" 
+    (click)="passProject(project.currentProject)"  title="Edit Project">
+       Edit Project <i class="fas fa-edit"></i>
+    </a>
+
+    <a routerLink="/delete" class="btn btn-outline-light navbut"
+     title ="Delete Project">
+       Delete Project <i class="fas fa-trash"></i>
+    </a>
+
+    <a routerLink="/overview" class="btn btn-outline-light navbut"
+     title ="Boards Page">
+       Boards Page <i class="fas fa-folder-open"></i>
+    </a>
+
+  
   </div>
 </div>
 <section class="row">

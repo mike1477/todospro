@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardsService } from "../boards.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-project-view',
@@ -8,7 +9,8 @@ import { BoardsService } from "../boards.service";
 })
 export class ProjectViewComponent implements OnInit {
 
-  constructor(private project: BoardsService) { }
+  constructor(private project: BoardsService,
+              public route: Router) { }
 
   ngOnInit() {
  
@@ -18,9 +20,8 @@ export class ProjectViewComponent implements OnInit {
      this.project.currentProject = project;
    }
 
-   deleteProject(project:any){
-    this.project.currentProject = null;
-    this.project.deleteProject(project);
+   areYouSure(){
+    this.route.navigate(['/view']);
    }
 
 

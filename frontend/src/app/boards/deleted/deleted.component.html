@@ -1,0 +1,25 @@
+
+<div class="alert alert-warning" role="alert" *ngIf="!board.success">
+  <h4 class="alert-heading">Are you sure?</h4>
+  <p>If you click on the delete button below things will go nuclear.</p>
+  <p>First, All the tasks that belong to the project will be permanently deleted from the database.
+      Second, It will spread and wipe out the project and anything that has to do with the project.
+      This destruction can not be undone.
+  </p>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+  <hr>
+
+  <a routerLink="/view" class="btn btn-info" >Go back to safety</a>
+  <button type="button" (click)="board.deleteProject()" id="deleteButton" 
+   class="btn btn-danger">Delete Project</button>
+  
+</div>
+<div class="alert alert-info" role="alert" *ngIf="board.success">
+    <h4 class="alert-heading">Success!</h4>
+    <p class="mb-0">Project and tasks deleted.</p>
+    <hr>
+  
+    <a routerLink="/overview" class="btn btn-success" >Boards Page</a>
+    
+    
+  </div>

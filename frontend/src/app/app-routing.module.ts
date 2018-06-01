@@ -11,6 +11,7 @@ import { ProjectViewComponent } from "./boards/project-view/project-view.compone
 import { TaskCreateComponent} from "./boards/task-create/task-create.component";
 import { TaskEditComponent } from "./boards/task-edit/task-edit.component";
 import { TaskViewComponent } from "./boards/task-view/task-view.component";
+import { DeletedComponent } from "./boards/deleted/deleted.component";
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'createtask', component: TaskCreateComponent },
   { path: 'edittask', component: TaskEditComponent },
   { path: 'viewtask', component: TaskViewComponent },
+  { path: 'delete', component: DeletedComponent },
 
 ];
 

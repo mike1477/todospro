@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AllProjects, CreateProject, EditProject } from "./models";
+import { FeedbackService } from "../feedback/feedback.service";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,7 +17,8 @@ const httpOptions = {
 export class ApiService {
 
   constructor(private http : HttpClient,
-              public route : Router) { }
+              public route : Router,
+              public fb : FeedbackService) { }
 
   getAllProjectsUrl = "http://localhost/sv/project/";
   createProjectUrl = "http://localhost/sv/createproject";
@@ -41,8 +43,6 @@ export class ApiService {
   }
 
   deleteProject(id:number): Observable<any>{
-    return this.http.delete(this.deleteProjectUrl + id).pipe(
-      tap(_ => this.route.navigate(['/overview'])),
-    )
+    return this.http.delete(this.deleteProjectUrl + id);
   }
 }

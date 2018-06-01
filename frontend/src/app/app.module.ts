@@ -19,6 +19,7 @@ import { TaskViewComponent } from './boards/task-view/task-view.component';
 import { TaskCreateComponent } from './boards/task-create/task-create.component';
 import { TaskEditComponent } from './boards/task-edit/task-edit.component';
 import { BoardComponent } from './boards/board/board.component';
+import { DeletedComponent } from './boards/deleted/deleted.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BoardComponent } from './boards/board/board.component';
     TaskViewComponent,
     TaskCreateComponent,
     TaskEditComponent,
-    BoardComponent
+    BoardComponent,
+    DeletedComponent
   ],
   imports: [
     BrowserModule,
