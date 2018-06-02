@@ -1,17 +1,17 @@
 <div class="card text-white bg-danger mb-3" >
   <div class="card-header">Project Details</div>
   <div class="card-body">
-    <h5 class="card-title">{{project.currentProject.title}}</h5>
-    <p class="card-text">{{project.currentProject.description}}</p>
+    <h5 class="card-title">{{board.currentProject.title}}</h5>
+    <p class="card-text">{{board.currentProject.description}}</p>
   </div>
   <div class="card-footer">
 
-    <a class="btn btn-outline-light navbut" title ="Create new task">
+    <a routerLink="/createtask" class="btn btn-outline-light navbut" title ="Create new task">
       New Task <i class="fas fa-plus"></i>
     </a>
 
     <a routerLink="/edit" class="btn btn-outline-light navbut" 
-    (click)="passProject(project.currentProject)"  title="Edit Project">
+    (click)="passProject(board.currentProject)"  title="Edit Project">
        Edit Project <i class="fas fa-edit"></i>
     </a>
 
@@ -30,16 +30,16 @@
 </div>
 <section class="row">
 
-  <section class="col-sm-4">
+  <section class="col-sm-6"  *ngFor="let task of board.allTasks">
     <div class="card border-danger mb-3">
       <div class="card-header">Task Details</div>
       <div class="card-body text-danger">
-        <h5 class="card-title">Task Title</h5>
-        <p class="card-text">Task Description</p>
+        <h5 class="card-title">{{task.title}}</h5>
+        <p class="card-text">{{task.description}}</p>
       </div>
       <div class="card-footer">
-        <a routerLink="" data-toggle="tooltip" data-placement="bottom" title="Edit Task"><i class="fas fa-edit"></i></a>
-        <a routerLink=""  title ="View Task"><i class="fas fa-search"></i></a>  
+        <a routerLink="/edittask" (click)="passTask(task)" class="btn btn-outline-danger navbut" title="Edit Task"><i class="fas fa-edit"></i></a>
+        <a routerLink="/viewtask" (click)="passTask(task)" class="btn btn-outline-danger navbut"  title ="View Task"><i class="fas fa-search"></i></a>  
       </div>
     </div>
   </section>

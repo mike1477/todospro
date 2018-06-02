@@ -13,4 +13,10 @@
   .error{
     color: #a94442;
   }
+  .navbut:hover{
+    color: black !important;
+}
+.navbut{
+    margin-right: 10px;
+}
   

@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { AllProjects, CreateProject, EditProject } from "./models";
+import { AllProjects, CreateProject, EditProject, NewTask, AllTasks, UpdateTask } from "./models";
 import { FeedbackService } from "../feedback/feedback.service";
 
 const httpOptions = {
@@ -20,10 +20,15 @@ export class ApiService {
               public route : Router,
               public fb : FeedbackService) { }
 
-  getAllProjectsUrl = "http://localhost/sv/project/";
-  createProjectUrl = "http://localhost/sv/createproject";
-  editProjectUrl = "http://localhost/sv/updateproject";
-  deleteProjectUrl = "http://localhost/sv/deleteproject/";
+  private getAllProjectsUrl = "http://localhost/sv/project/";
+  private createProjectUrl = "http://localhost/sv/createproject";
+  private editProjectUrl = "http://localhost/sv/updateproject";
+  private deleteProjectUrl = "http://localhost/sv/deleteproject/";
+  private createTaskUrl = "http://localhost/sv/createtask";
+  private getAllTasksUrl = "http://localhost/sv/tasks/";
+  private editTasksUrl = "http://localhost/sv/updatetask";
+  private deleteTaskUrl = "http://localhost/sv/deletetask/";
+  private  deleteAllTaskUrl = "http://localhost/sv/deletealltasks/";
 
   getAllProjects(id: number): Observable<AllProjects[]> {
     return this.http.get<AllProjects[]>(this.getAllProjectsUrl + id);
@@ -44,5 +49,30 @@ export class ApiService {
 
   deleteProject(id:number): Observable<any>{
     return this.http.delete(this.deleteProjectUrl + id);
+  }
+
+  createTask(newTask: NewTask): Observable<any>{
+    return this.http.post(this.createTaskUrl, newTask, httpOptions).pipe(
+      tap(_ => this.route.navigate(['/view']))
+    )
+  }
+
+  getAllTasks(id: number): Observable<AllTasks[]> {
+    return this.http.get<AllTasks[]>(this.getAllTasksUrl + id);
+
+  }
+
+  updateTask(editTask: UpdateTask): Observable<any>{
+    return this.http.put(this.editTasksUrl, editTask, httpOptions).pipe(
+      tap(_ => this.route.navigate(['/view']))
+    )
+  }
+
+  deleteTask(id:number): Observable<any>{
+    return this.http.delete(this.deleteTaskUrl + id);
+  }
+
+  deleteAllTask(project_id :number){
+    return this.http.delete(this.deleteAllTaskUrl + project_id);
   }
 }

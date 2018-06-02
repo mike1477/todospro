@@ -9,19 +9,24 @@ import { Router } from "@angular/router";
 })
 export class ProjectViewComponent implements OnInit {
 
-  constructor(private project: BoardsService,
+  constructor(private board: BoardsService,
               public route: Router) { }
 
   ngOnInit() {
- 
+    this.board.getAllTasks();
   }
 
+
    passProject(project:any){
-     this.project.currentProject = project;
+     this.board.currentProject = project;
    }
 
    areYouSure(){
     this.route.navigate(['/view']);
+   }
+
+   passTask(task){
+     this.board.currentTask = task;
    }
 
 

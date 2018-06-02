@@ -8,7 +8,7 @@ import { BoardsService } from "../boards.service";
 })
 export class TaskViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private board: BoardsService) { }
 
   ngOnInit() {
   }

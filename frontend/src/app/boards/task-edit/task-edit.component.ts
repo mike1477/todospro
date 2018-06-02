@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from "../models";
 import { ColorThemeService } from "../color-theme.service";
+import { BoardsService } from "../boards.service";
 
 @Component({
   selector: 'app-task-edit',
@@ -9,27 +9,21 @@ import { ColorThemeService } from "../color-theme.service";
 })
 export class TaskEditComponent implements OnInit {
 
-  constructor(public ct: ColorThemeService) { }
+  constructor(public board : BoardsService) { }
 
   ngOnInit() {
   }
 
-  //Get Task from service
-  // np : Task = service.task
-  
-  colorThemes = this.ct.colorThemes;
 
 
 
-  np: Project = {
-    id: 1,
-    color_id : 1,
-    title: '',
-    description: '',
+  np = {
+    title: this.board.currentTask.title,
+    description: this.board.currentTask.description,
   }
 
-  editProject(){
-    //Send this.task to service
+  editTask(){
+    this.board.editTask(this.np);
   }
 
 }

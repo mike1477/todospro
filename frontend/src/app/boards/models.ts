@@ -35,3 +35,24 @@ export interface AllProjects{
      created_at: string,
      updated_at: string
 }
+
+export interface NewTask{
+    title:string,
+    description:string,
+    project_id: number
+}
+
+export interface AllTasks{
+    id: number,
+    board_id : number,
+    title: string,
+    description: string,
+    created_at: string,
+    updated_at: string
+}
+
+export interface UpdateTask{
+    id:number,
+    title: string,
+    description: string
+}

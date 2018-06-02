@@ -3,7 +3,7 @@ import { FeedbackService } from "../feedback/feedback.service";
 import { ApiService } from "./api.service";
 import { UsersService } from "../users/users.service";
 import { Router } from "@angular/router";
-import { CreateProject, EditProject, AllProjects } from "./models";
+import { CreateProject, EditProject, AllProjects, NewTask, AllTasks, UpdateTask } from "./models";
 
 
 @Injectable({
@@ -22,7 +22,10 @@ export class BoardsService{
   currentProject : any; 
   allProjects: AllProjects[];
   success : boolean = false;
-
+  currentTask : any;
+  newTask : NewTask;
+  allTasks : AllTasks[];
+  updateTask : UpdateTask;
 
   returnProjects(){
     return this.allProjects;
@@ -101,6 +104,9 @@ export class BoardsService{
 
     let id = this.currentProject.id;
     this.fb.addMessage("deleting Project");
+
+    this.api.deleteAllTask(id)
+     .subscribe();
    
     this.api.deleteProject(id)
      .subscribe(() => this.success = true);
@@ -109,4 +115,103 @@ export class BoardsService{
    this.fb.donebar();
    
   }
+
+  createTask(newTask){
+    this.fb.startbar();
+    if(this.user.getUser() === undefined){
+      this.fb.addMessage("Need to sign in before creating new task");
+      this.route.navigate(['/login']);
+      this.fb.donebar();
+      return;
+    }
+
+    if(this.currentProject === undefined){
+      this.fb.addMessage("Select project to add task");
+      this.route.navigate(['/overview']);
+      this.fb.donebar();
+      return;
+    }
+
+    let project_id = this.currentProject.id;
+ 
+    this.newTask= {
+      title: newTask.title,
+      description: newTask.description,
+      project_id: project_id
+    }
+
+    this.currentTask = this.newTask;
+    this.fb.addMessage("Creating Task");
+  
+    this.api.createTask(this.newTask)
+    .subscribe();
+     this.fb.donebar();
+
+  }
+
+  getAllTasks(){
+
+    this.fb.startbar();
+    if(this.user.getUser() === undefined){
+      this.route.navigate(['/login']);
+      this.fb.donebar();
+      return;
+    }
+
+    if(this.currentProject === undefined){
+      this.route.navigate(['/overview']);
+      this.fb.donebar();
+      return;
+    }
+
+    let project_id = this.currentProject.id;
+
+    this.api.getAllTasks(project_id)
+    .subscribe(tasks => this.allTasks = tasks);
+    this.fb.donebar();
+
+  }
+
+  editTask(updateTask){
+    this.fb.startbar();
+    if(this.user.getUser() === undefined){
+      this.fb.addMessage("oops , Please login before updating this task");
+      this.route.navigate(['/login']);
+      this.fb.donebar();
+      return;
+    }
+
+    this.updateTask = {
+      id: this.currentTask.id,
+      title: updateTask.title,
+      description: updateTask.description
+    }
+    this.fb.addMessage("Editing Task");
+
+    this.api.updateTask(this.updateTask)
+    .subscribe();
+
+     this.fb.donebar();
+  }
+
+  deleteTask(task){
+    this.fb.startbar();
+    if(this.user.getUser() === undefined){
+      this.fb.addMessage("Need to sign in before delete task");
+      this.route.navigate(['/view']);
+      this.fb.donebar();
+      return;
+    }
+
+    let id = task.id;
+    this.fb.addMessage("deleting Task");
+   
+    this.api.deleteTask(id)
+     .subscribe();
+  
+   
+   this.fb.donebar();
+  }
+
+
 }
