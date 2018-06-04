@@ -18,13 +18,39 @@ export class ColorThemeService {
   ];
 
   getBackgroundColor(id:number){
-
-    for (let theme of this.colorThemes) {
-       if(theme.id === id){
-          return "bg-"+ theme.class;
-       }
-       return null;
+    for (var i = 0; i < this.colorThemes.length; i++) {
+       if( this.colorThemes[i].id == id){
+          return "bg-"+ this.colorThemes[i].class;
+       }      
     }
+    return null;
+  }
+
+  getBorderColor(id:number){
+    for (var i = 0; i < this.colorThemes.length; i++) {
+       if( this.colorThemes[i].id == id){
+          return "border-"+ this.colorThemes[i].class;
+       }      
+    }
+    return null;
+  }
+
+  getButtonBorder(id:number){
+    for (var i = 0; i < this.colorThemes.length; i++) {
+       if( this.colorThemes[i].id == id){
+          return "btn-outline-"+ this.colorThemes[i].class;
+       }      
+    }
+    return null;
+  }
+
+  textColor(id:number){
+    for (var i = 0; i < this.colorThemes.length; i++) {
+       if( this.colorThemes[i].id == id){
+          return "text-"+ this.colorThemes[i].class;
+       }      
+    }
+    return null;
   }
   
 }

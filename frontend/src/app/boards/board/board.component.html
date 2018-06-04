@@ -10,10 +10,12 @@
         <div class="card-body todo-cards board-cards">
           <ul class="list-group list-group-flush boards-list">
 
-            <li class="list-group-item border-left border-primary text-left" 
+            <li class="list-group-item border-left {{theme.getBorderColor(project.color_id)}} text-left" 
             *ngFor="let project of boards.allProjects">
             {{project.title}}
-              <a routerLink="/view" (click)="viewProject(project)" title ="View Project"><i class="fas fa-search"></i></a>
+              <a routerLink="/view" (click)="viewProject(project)" title ="View Project" class="float-right btn {{theme.getButtonBorder(project.color_id)}}">
+                <i class="fas fa-search"></i>
+              </a>
           </li>
           </ul>
         </div>

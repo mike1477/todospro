@@ -83,7 +83,7 @@ export class BoardsService{
       id: editProject.id,
       title: editProject.title,
       description: editProject.description,
-      color_id: 0,
+      color_id: editProject.color_id,
     }
     this.fb.addMessage("Editing Project");
     this.currentProject = this.updateProject;

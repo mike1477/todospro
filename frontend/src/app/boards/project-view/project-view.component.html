@@ -1,4 +1,4 @@
-<div class="card text-white bg-danger mb-3" >
+<div class="card text-white mb-3 {{theme.getBackgroundColor(board.currentProject.color_id)}}" >
   <div class="card-header">Project Details</div>
   <div class="card-body">
     <h5 class="card-title">{{board.currentProject.title}}</h5>
@@ -31,15 +31,15 @@
 <section class="row">
 
   <section class="col-sm-6"  *ngFor="let task of board.allTasks">
-    <div class="card border-danger mb-3">
+    <div class="card mb-3 {{theme.getBorderColor(board.currentProject.color_id)}}">
       <div class="card-header">Task Details</div>
-      <div class="card-body text-danger">
+      <div class="card-body {{theme.textColor(board.currentProject.color_id)}}">
         <h5 class="card-title">{{task.title}}</h5>
         <p class="card-text">{{task.description}}</p>
       </div>
       <div class="card-footer">
-        <a routerLink="/edittask" (click)="passTask(task)" class="btn btn-outline-danger navbut" title="Edit Task"><i class="fas fa-edit"></i></a>
-        <a routerLink="/viewtask" (click)="passTask(task)" class="btn btn-outline-danger navbut"  title ="View Task"><i class="fas fa-search"></i></a>  
+        <a routerLink="/edittask" (click)="passTask(task)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut" title="Edit Task"><i class="fas fa-edit"></i></a>
+        <a routerLink="/viewtask" (click)="passTask(task)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"  title ="View Task"><i class="fas fa-search"></i></a>  
       </div>
     </div>
   </section>

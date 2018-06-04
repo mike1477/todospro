@@ -1,4 +1,4 @@
-<div class="card text-white bg-danger mb-3" >
+<div class="card {{theme.getBorderColor(board.currentProject.color_id)}} mb-3" >
     <div class="card-header">Task Details</div>
     <div class="card-body">
       <h5 class="card-title">{{board.currentTask.title}}</h5>
@@ -7,22 +7,22 @@
     <div class="card-footer">
 
   
-      <a routerLink="/edittask" class="btn btn-outline-light navbut" 
+      <a routerLink="/edittask" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut" 
         title="Edit Project">
          Edit Task <i class="fas fa-edit"></i>
       </a>
   
-      <a (click)="board.deleteTask(board.currentTask)" class="btn btn-outline-light navbut"
+      <a routerLink="" (click)="board.deleteTask(board.currentTask)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
        title ="Delete Project">
          Delete Task <i class="fas fa-trash"></i>
       </a>
   
-      <a routerLink="/overview" class="btn btn-outline-light navbut"
+      <a routerLink="/overview" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
        title ="Boards Page">
          Boards Page <i class="fas fa-folder-open"></i>
       </a>
   
-      <a routerLink="/view" class="btn btn-outline-light navbut"
+      <a routerLink="/view" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
        title ="Project Page">
          Project Page <i class="fas fa-folder-open"></i>
       </a>

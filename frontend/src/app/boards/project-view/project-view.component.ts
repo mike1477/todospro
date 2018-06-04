@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardsService } from "../boards.service";
 import { Router } from "@angular/router";
+import { ColorThemeService } from "../color-theme.service";
 
 @Component({
   selector: 'app-project-view',
@@ -10,12 +11,12 @@ import { Router } from "@angular/router";
 export class ProjectViewComponent implements OnInit {
 
   constructor(private board: BoardsService,
-              public route: Router) { }
+              public route: Router,
+              public theme: ColorThemeService) { }
 
   ngOnInit() {
     this.board.getAllTasks();
   }
-
 
    passProject(project:any){
      this.board.currentProject = project;

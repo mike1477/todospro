@@ -18,14 +18,15 @@ $app->post('/createproject', function (Request $request, Response $response) {
   $title        = $request->getParam('title');
   $description  = $request->getParam('description');
   $user_id     = $request->getParam('user_id');
-
+  $color_id     = $request->getParam('color_id');
 
   try {
     $this->db->table('boards')->insert(
       [
         'title'       => $title,
         'description' => $description,
-        'user_id'    => $user_id,
+        'user_id'     => $user_id,
+        'color_id'    => $color_id
      ]
     );
 
@@ -40,13 +41,14 @@ $app->put('/updateproject', function (Request $request, Response $response) {
   $id           = $request->getParam('id');
   $title        = $request->getParam('title');
   $description  = $request->getParam('description');
-
+  $color_id     = $request->getParam('color_id');
 
   try {
     $this->db->table('boards')->where('id', $id)->update(
       [
         'title'       => $title,
-        'description' => $description
+        'description' => $description,
+        'color_id'    => $color_id
      ]
     );
 
