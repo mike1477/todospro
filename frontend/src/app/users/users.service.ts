@@ -21,9 +21,7 @@ export class UsersService {
      this.fb.startbar();
      this.fb.addMessage("Authenticating Information");    
      this.api.login(userInfo)
-     .subscribe(user => this.user = user);
-     this.fb.donebar();
-    
+     .subscribe(user => this.user = user);   
   }
 
   register(newUserInfo){
@@ -31,7 +29,6 @@ export class UsersService {
      this.fb.addMessage("Creating new profile for " + newUserInfo.username);
      this.api.register(newUserInfo)
      .subscribe();
-     this.fb.donebar();
   }
 
   editUser(editUser){
@@ -39,7 +36,6 @@ export class UsersService {
     this.fb.addMessage("Checking Form Information");
     this.api.updateUser(editUser)
      .subscribe();
-    this.fb.donebar();
   }
 
   logout(){

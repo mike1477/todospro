@@ -19,7 +19,7 @@ export class BoardComponent implements OnInit {
 
 
   viewProject(project: any){
-      this.boards.currentProject = project;
+      this.boards.viewProject(project);
   }
   
 }

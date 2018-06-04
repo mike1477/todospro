@@ -7,7 +7,7 @@
     <div class="card-footer">
 
   
-      <a routerLink="/edittask" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut" 
+      <a routerLink="/edittask" (click)="editTask(board.currentTask)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut" 
         title="Edit Project">
          Edit Task <i class="fas fa-edit"></i>
       </a>
@@ -22,7 +22,7 @@
          Boards Page <i class="fas fa-folder-open"></i>
       </a>
   
-      <a routerLink="/view" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
+      <a routerLink="/view" (click)="viewProject(board.currentProject)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
        title ="Project Page">
          Project Page <i class="fas fa-folder-open"></i>
       </a>

@@ -7,7 +7,7 @@
   <div class="card-footer">
 
     <a routerLink="/createtask" class="btn btn-outline-light navbut" title ="Create new task">
-      New Task <i class="fas fa-plus"></i>
+      New Todo <i class="fas fa-plus"></i>
     </a>
 
     <a routerLink="/edit" class="btn btn-outline-light navbut" 
@@ -38,8 +38,8 @@
         <p class="card-text">{{task.description}}</p>
       </div>
       <div class="card-footer">
-        <a routerLink="/edittask" (click)="passTask(task)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut" title="Edit Task"><i class="fas fa-edit"></i></a>
-        <a routerLink="/viewtask" (click)="passTask(task)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"  title ="View Task"><i class="fas fa-search"></i></a>  
+        <a routerLink="/edittask" (click)="editTask(task)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut" title="Edit Task"><i class="fas fa-edit"></i></a>
+        <a  routerLink="/viewtask" (click)="viewTask(task)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"  title ="View Task"><i class="fas fa-search"></i></a>  
       </div>
     </div>
   </section>

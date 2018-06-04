@@ -1,6 +1,6 @@
 <div  class="card text-left">
     <div class="card-header">
-      Edit Task
+      Edit Todo
     </div>
       <div class="card-body todo-cards">
        <form #editTaskForm="ngForm" (ngSubmit)="editTask()">
@@ -17,7 +17,7 @@
          </div>
   
          <div class="form-group row">
-           <label for="taskDescription" class="col-lg-3 col-form-label card-text">Description</label>
+           <label for="taskDescription" class="col-lg-3 col-form-label card-text">Todo</label>
            <div class="col-lg-9">
              <textarea rows="5" class="form-control" [(ngModel)]="np.description"
                id="description"  name="description" >
@@ -28,13 +28,13 @@
   
          <div class="form-group row">
            <div class="col-sm-12 text-center" >
-             <button type="submit" class="btn btn-outline-warning" [disabled]="editTaskForm.invalid">Update Project</button>
+             <button type="submit" class="btn btn-outline-warning" [disabled]="editTaskForm.invalid">Update Todo</button>
            </div>
          </div>
        </form>
      </div>
       <div class="card-footer text-muted">
-        Update Task
+        Update Todo
       </div>
   
    </div>

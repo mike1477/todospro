@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { BoardsService } from "../boards.service";
+import { ApiService } from "../api.service";
 
 @Component({
   selector: 'app-deleted',
@@ -10,10 +11,11 @@ import { BoardsService } from "../boards.service";
 export class DeletedComponent implements OnInit {
 
   constructor(public route: Router,
-              public board: BoardsService) { }
+              public board: BoardsService,
+              public api : ApiService) { }
 
   ngOnInit() {
-    this.board.success = false;
+    this.api.success = false;
   }
 
 

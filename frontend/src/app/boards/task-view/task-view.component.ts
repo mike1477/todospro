@@ -15,4 +15,14 @@ export class TaskViewComponent implements OnInit {
   ngOnInit() {
   }
 
+viewProject(project){
+  this.board.viewProject(project);
+}
+
+
+editTask(task){
+  this.board.setEdit(task);
+}
+
+
 }

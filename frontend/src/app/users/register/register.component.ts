@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
    password2: ''
  }
 
-  register(newUser: NgForm):void{
-    this.us.register(newUser.value);  
+  register():void{
+   this.us.register(this.newUser);  
   }
 }

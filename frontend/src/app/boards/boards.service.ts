@@ -21,7 +21,6 @@ export class BoardsService{
   updateProject: EditProject;
   currentProject : any; 
   allProjects: AllProjects[];
-  success : boolean = false;
   currentTask : any;
   newTask : NewTask;
   allTasks : AllTasks[];
@@ -29,6 +28,21 @@ export class BoardsService{
 
   returnProjects(){
     return this.allProjects;
+  }
+
+  viewProject(project){
+    this.currentProject = project;
+    this.fb.addMessage("Currently viewing : " + this.currentProject.title);
+  }
+
+  viewTask(task){
+    this.currentTask = task;
+    this.fb.addMessage("Currently viewing : " + this.currentTask.title);
+  }
+
+  setEdit(task){
+    this.currentTask = task;
+    this.fb.addMessage("Edit TODO : " + this.currentTask.title);
   }
 
   getAllProjects(){
@@ -67,7 +81,7 @@ export class BoardsService{
   
     this.api.createProject(this.newProject)
     .subscribe();
-     this.fb.donebar();
+     
   }
 
   editProject(editProject){
@@ -89,8 +103,6 @@ export class BoardsService{
     this.currentProject = this.updateProject;
     this.api.updateProject(this.updateProject)
     .subscribe();
-
-     this.fb.donebar();
   }
 
   deleteProject(){
@@ -103,16 +115,14 @@ export class BoardsService{
     }
 
     let id = this.currentProject.id;
-    this.fb.addMessage("deleting Project");
+    this.fb.addMessage("Deleting Project ...");
 
     this.api.deleteAllTask(id)
      .subscribe();
    
     this.api.deleteProject(id)
-     .subscribe(() => this.success = true);
+     .subscribe();
   
-   
-   this.fb.donebar();
    
   }
 
@@ -145,7 +155,6 @@ export class BoardsService{
   
     this.api.createTask(this.newTask)
     .subscribe();
-     this.fb.donebar();
 
   }
 
@@ -186,31 +195,28 @@ export class BoardsService{
       title: updateTask.title,
       description: updateTask.description
     }
-    this.fb.addMessage("Editing Task");
+    this.fb.addMessage("Editing Task ...");
 
     this.api.updateTask(this.updateTask)
     .subscribe();
 
-     this.fb.donebar();
   }
 
   deleteTask(task){
     this.fb.startbar();
     if(this.user.getUser() === undefined){
       this.fb.addMessage("Need to sign in before delete task");
-      this.route.navigate(['/view']);
+      this.route.navigate(['/login']);
       this.fb.donebar();
       return;
     }
 
     let id = task.id;
-    this.fb.addMessage("deleting Task");
+    this.fb.addMessage("Deleting Task");
    
     this.api.deleteTask(id)
      .subscribe();
   
-   
-   this.fb.donebar();
   }
 
 

@@ -26,8 +26,12 @@ export class ProjectViewComponent implements OnInit {
     this.route.navigate(['/view']);
    }
 
-   passTask(task){
-     this.board.currentTask = task;
+   viewTask(task){
+     this.board.viewTask(task);
+   }
+
+   editTask(task){
+     this.board.setEdit(task);
    }
 
 

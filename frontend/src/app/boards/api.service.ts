@@ -30,30 +30,48 @@ export class ApiService {
   private deleteTaskUrl = "http://localhost/sv/deletetask/";
   private  deleteAllTaskUrl = "http://localhost/sv/deletealltasks/";
 
+  success: boolean = false;
+
   getAllProjects(id: number): Observable<AllProjects[]> {
-    return this.http.get<AllProjects[]>(this.getAllProjectsUrl + id);
+    return this.http.get<AllProjects[]>(this.getAllProjectsUrl + id).pipe(
+      catchError(this.fb.handleError('get projects'))
+    );
 
   }
 
   createProject(newProject: CreateProject): Observable<any>{
     return this.http.post(this.createProjectUrl, newProject, httpOptions).pipe(
-      tap(_ => this.route.navigate(['/view']))
+      tap(_ => this.route.navigate(['/view'])),
+      tap(_ => this.fb.addMessage("Project Created")),
+      tap(_ => this.fb.donebar()),
+      tap(_ => this.success = true),
+      catchError(this.fb.handleError('create project'))
     )
   }
 
   updateProject(updateProject: EditProject): Observable<any>{
     return this.http.put(this.editProjectUrl, updateProject, httpOptions).pipe(
-      tap(_ => this.route.navigate(['/view']))
+      tap(_ => this.route.navigate(['/view'])),
+      tap(_ => this.fb.addMessage("Project Edited " )),
+      tap(_ => this.fb.donebar()),
+      catchError(this.fb.handleError('edit project'))
     )
   }
 
   deleteProject(id:number): Observable<any>{
-    return this.http.delete(this.deleteProjectUrl + id);
+    return this.http.delete(this.deleteProjectUrl + id).pipe(
+      tap(_ => this.fb.donebar()),
+      tap(_ => this.fb.addMessage("Project Deleted")),
+      catchError(this.fb.handleError('delete project'))
+    )
   }
 
   createTask(newTask: NewTask): Observable<any>{
     return this.http.post(this.createTaskUrl, newTask, httpOptions).pipe(
-      tap(_ => this.route.navigate(['/view']))
+      tap(_ => this.fb.donebar()),
+      tap(_ => this.fb.addMessage("Task Created")),
+      tap(_ => this.route.navigate(['/view'])),
+      catchError(this.fb.handleError('create todo'))
     )
   }
 
@@ -64,12 +82,20 @@ export class ApiService {
 
   updateTask(editTask: UpdateTask): Observable<any>{
     return this.http.put(this.editTasksUrl, editTask, httpOptions).pipe(
-      tap(_ => this.route.navigate(['/view']))
+      tap(_ => this.fb.donebar()),
+      tap(_ => this.fb.addMessage("Task Edited")),
+      tap(_ => this.route.navigate(['/view'])),
+      catchError(this.fb.handleError('edit todo'))
     )
   }
 
   deleteTask(id:number): Observable<any>{
-    return this.http.delete(this.deleteTaskUrl + id);
+    return this.http.delete(this.deleteTaskUrl + id).pipe(
+      tap(_ => this.fb.donebar()),
+      tap(_ => this.fb.addMessage("Task Deleted")),
+      tap(_ => this.route.navigate(['/view'])),
+      catchError(this.fb.handleError('delete todo'))
+    )
   }
 
   deleteAllTask(project_id :number){
