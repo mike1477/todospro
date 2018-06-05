@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from "./auth/auth.guard";
 import { LoginComponent }      from './users/login/login.component';
 import { RegisterComponent } from "./users/register/register.component";
 import { EditUserComponent } from "./users/edit-user/edit-user.component";
@@ -17,17 +18,17 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'edituser', component: EditUserComponent },
+  { path: 'edituser', component: EditUserComponent, canActivate: [AuthGuard] },
 
-  { path: 'overview', component: BoardComponent },
-  { path: 'create', component: ProjectCreateComponent },
-  { path: 'edit', component: ProjectEditComponent },
-  { path: 'view', component: ProjectViewComponent },
+  { path: 'overview', component: BoardComponent, canActivate: [AuthGuard] },
+  { path: 'create', component: ProjectCreateComponent, canActivate: [AuthGuard] },
+  { path: 'edit', component: ProjectEditComponent, canActivate: [AuthGuard] },
+  { path: 'view', component: ProjectViewComponent, canActivate: [AuthGuard] },
 
-  { path: 'createtask', component: TaskCreateComponent },
-  { path: 'edittask', component: TaskEditComponent },
-  { path: 'viewtask', component: TaskViewComponent },
-  { path: 'delete', component: DeletedComponent },
+  { path: 'createtask', component: TaskCreateComponent, canActivate: [AuthGuard] },
+  { path: 'edittask', component: TaskEditComponent, canActivate: [AuthGuard] },
+  { path: 'viewtask', component: TaskViewComponent, canActivate: [AuthGuard] },
+  { path: 'delete', component: DeletedComponent, canActivate: [AuthGuard] },
 
 ];
 

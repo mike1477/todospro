@@ -44,7 +44,6 @@ export class ApiService {
       tap(_ => this.route.navigate(['/view'])),
       tap(_ => this.fb.addMessage("Project Created")),
       tap(_ => this.fb.donebar()),
-      tap(_ => this.success = true),
       catchError(this.fb.handleError('create project'))
     )
   }
@@ -62,6 +61,7 @@ export class ApiService {
     return this.http.delete(this.deleteProjectUrl + id).pipe(
       tap(_ => this.fb.donebar()),
       tap(_ => this.fb.addMessage("Project Deleted")),
+      tap(_ => this.success = true),
       catchError(this.fb.handleError('delete project'))
     )
   }

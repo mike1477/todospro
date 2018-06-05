@@ -47,12 +47,7 @@ export class BoardsService{
 
   getAllProjects(){
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.fb.addMessage("Need to sign in before showing all projects");
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
+  
     let id = this.user.getUser().id;
    this.fb.addMessage("Fetching All Projects");
    this.api.getAllProjects(id)
@@ -63,13 +58,7 @@ export class BoardsService{
 
   createProject(project){
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.fb.addMessage("oops , Need to be logged in to create new Projects");
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
-
+    
     this.newProject = {
       title: project.title,
       description: project.description,
@@ -86,12 +75,6 @@ export class BoardsService{
 
   editProject(editProject){
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.fb.addMessage("oops , Please login before updating this project");
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
 
     this.updateProject = {
       id: editProject.id,
@@ -107,12 +90,7 @@ export class BoardsService{
 
   deleteProject(){
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.fb.addMessage("Need to sign in before delete project");
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
+  
 
     let id = this.currentProject.id;
     this.fb.addMessage("Deleting Project ...");
@@ -128,12 +106,6 @@ export class BoardsService{
 
   createTask(newTask){
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.fb.addMessage("Need to sign in before creating new task");
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
 
     if(this.currentProject === undefined){
       this.fb.addMessage("Select project to add task");
@@ -161,11 +133,6 @@ export class BoardsService{
   getAllTasks(){
 
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
 
     if(this.currentProject === undefined){
       this.route.navigate(['/overview']);
@@ -183,12 +150,6 @@ export class BoardsService{
 
   editTask(updateTask){
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.fb.addMessage("oops , Please login before updating this task");
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
 
     this.updateTask = {
       id: this.currentTask.id,
@@ -204,12 +165,6 @@ export class BoardsService{
 
   deleteTask(task){
     this.fb.startbar();
-    if(this.user.getUser() === undefined){
-      this.fb.addMessage("Need to sign in before delete task");
-      this.route.navigate(['/login']);
-      this.fb.donebar();
-      return;
-    }
 
     let id = task.id;
     this.fb.addMessage("Deleting Task");

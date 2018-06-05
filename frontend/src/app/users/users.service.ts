@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FeedbackService } from "../feedback/feedback.service";
 import { ApiService } from "./api.service";
 import { User } from "./user.model";
-import { LoggedInService } from "./logged-in.service";
+import { LoggedInService } from "../auth/logged-in.service";
 import { Router } from "@angular/router";
 
 @Injectable({

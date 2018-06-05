@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from "../users.service";
 import { User, EditUser } from "./user";
 import{ NgForm } from '@angular/forms';
-import { LoggedInService } from "../logged-in.service";
+import { LoggedInService } from "../../auth/logged-in.service";
 import { Router } from "@angular/router";
 
 

@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { FeedbackService } from "../feedback/feedback.service";
-import { LoggedInService } from "./logged-in.service";
+import { LoggedInService } from "../auth/logged-in.service";
 
 import { Router } from "@angular/router";
 

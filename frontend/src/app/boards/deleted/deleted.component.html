@@ -1,5 +1,5 @@
 
-<div class="alert alert-warning" role="alert" *ngIf="!board.success">
+<div class="alert alert-warning" role="alert" *ngIf="!api.success">
   <h4 class="alert-heading">Are you sure?</h4>
   <p>If you click on the delete button below things will go nuclear.</p>
   <p>First, All the tasks that belong to the project will be permanently deleted from the database.
@@ -15,7 +15,7 @@
    class="btn btn-danger">Delete Project</button>
   
 </div>
-<div class="alert alert-info" role="alert" *ngIf="board.success">
+<div class="alert alert-info" role="alert" *ngIf="api.success">
     <h4 class="alert-heading">Success!</h4>
     <p class="mb-0">Project and tasks deleted.</p>
     <hr>
