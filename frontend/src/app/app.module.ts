@@ -20,6 +20,8 @@ import { TaskCreateComponent } from './boards/task-create/task-create.component'
 import { TaskEditComponent } from './boards/task-edit/task-edit.component';
 import { BoardComponent } from './boards/board/board.component';
 import { DeletedComponent } from './boards/deleted/deleted.component';
+import { ViewDemoComponent } from './demo/view-demo/view-demo.component';
+import { FrontDemoComponent } from './demo/front-demo/front-demo.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { DeletedComponent } from './boards/deleted/deleted.component';
     TaskCreateComponent,
     TaskEditComponent,
     BoardComponent,
-    DeletedComponent
+    DeletedComponent,
+    ViewDemoComponent,
+    FrontDemoComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,9 +13,12 @@ import { TaskCreateComponent} from "./boards/task-create/task-create.component";
 import { TaskEditComponent } from "./boards/task-edit/task-edit.component";
 import { TaskViewComponent } from "./boards/task-view/task-view.component";
 import { DeletedComponent } from "./boards/deleted/deleted.component";
+import { FrontDemoComponent } from "./demo/front-demo/front-demo.component";
+import { ViewDemoComponent } from "./demo/view-demo/view-demo.component";
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: FrontDemoComponent },
+  { path: 'viewdemo', component: ViewDemoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'edituser', component: EditUserComponent, canActivate: [AuthGuard] },

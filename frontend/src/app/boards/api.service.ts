@@ -34,6 +34,8 @@ export class ApiService {
 
   getAllProjects(id: number): Observable<AllProjects[]> {
     return this.http.get<AllProjects[]>(this.getAllProjectsUrl + id).pipe(
+      tap(_ => this.fb.donebar()),
+      tap(_ => this.fb.addMessage("Projects board")),
       catchError(this.fb.handleError('get projects'))
     );
 

@@ -52,8 +52,6 @@ export class BoardsService{
    this.fb.addMessage("Fetching All Projects");
    this.api.getAllProjects(id)
     .subscribe(projects => this.allProjects = projects);
-   this.fb.donebar();
-   this.fb.addMessage("Projects Board");
   }
 
   createProject(project){

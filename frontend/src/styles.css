@@ -19,4 +19,37 @@
 .navbut{
     margin-right: 10px;
 }
+.boards-list{
+  border: none;
+}
+.boards-list li{
+  border: none;
+  margin-top: 10px;
+}
+.board-cards{
+
+  height: 400px;
+  overflow-y: scroll;
+}
+/* width */
+.board-cards::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.board-cards::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+.board-cards::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.board-cards::-webkit-scrollbar-thumb:hover {
+    background: #ffc107;
+}
   

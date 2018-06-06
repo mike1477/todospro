@@ -1,0 +1,50 @@
+<div class="card text-white mb-3 {{theme.getBackgroundColor(ds.currentProject.color_id)}}" >
+  <div class="card-header">Project Details</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ds.currentProject.title}}</h5>
+    <p class="card-text">{{ds.currentProject.description}}</p>
+  </div>
+  <div class="card-footer">
+
+    <a routerLink="/register" class="btn btn-outline-light navbut" title ="Create new task">
+      New Todo <i class="fas fa-plus"></i>
+    </a>
+
+    <a routerLink="/register" class="btn btn-outline-light navbut"  title="Edit Project">
+       Edit Project <i class="fas fa-edit"></i>
+    </a>
+
+    <a routerLink="/register" class="btn btn-outline-light navbut"
+     title ="Delete Project">
+       Delete Project <i class="fas fa-trash"></i>
+    </a>
+
+    <a routerLink="" class="btn btn-outline-light navbut"
+     title ="Boards Page">
+       Boards Page <i class="fas fa-folder-open"></i>
+    </a>
+
+  
+  </div>
+</div>
+
+
+
+<section class="row">
+
+  <section class="col-sm-6"  *ngFor="let task of ds.allTasks">
+    <div class="card mb-3 {{theme.getBorderColor(ds.currentProject.color_id)}}">
+      <div class="card-header">Task Details</div>
+      <div class="card-body {{theme.textColor(ds.currentProject.color_id)}}">
+        <h5 class="card-title">{{task.title}}</h5>
+        <p class="card-text">{{task.description}}</p>
+      </div>
+      <div class="card-footer">
+        <a routerLink="/register"  class="btn {{theme.getButtonBorder(ds.currentProject.color_id)}} navbut" title="Edit Task"><i class="fas fa-edit"></i></a>
+        <a  routerLink="/register" class="btn {{theme.getButtonBorder(ds.currentProject.color_id)}} navbut"  title ="View Task"><i class="fas fa-search"></i></a>  
+      </div>
+    </div>
+  </section>
+ 
+
+  </section> 
