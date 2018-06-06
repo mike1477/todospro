@@ -33,6 +33,8 @@ const routes: Routes = [
   { path: 'viewtask', component: TaskViewComponent, canActivate: [AuthGuard] },
   { path: 'delete', component: DeletedComponent, canActivate: [AuthGuard] },
 
+  { path: '**', component: FrontDemoComponent }
+
 ];
 
 

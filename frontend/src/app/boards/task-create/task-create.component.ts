@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { Project } from "../models";
 import { ColorThemeService } from "../color-theme.service";
 import { BoardsService } from "../boards.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-task-create',
@@ -10,7 +11,8 @@ import { BoardsService } from "../boards.service";
 })
 export class TaskCreateComponent implements OnInit {
 
-  constructor(public board : BoardsService) { }
+  constructor(public board : BoardsService,
+              private location: Location) { }
 
   ngOnInit() {
   }
@@ -25,6 +27,10 @@ export class TaskCreateComponent implements OnInit {
 
   newTask(){
     this.board.createTask(this.np);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

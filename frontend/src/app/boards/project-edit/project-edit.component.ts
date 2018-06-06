@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from "../models";
 import { ColorThemeService } from "../color-theme.service";
 import { BoardsService } from "../boards.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-project-edit',
@@ -11,7 +12,8 @@ import { BoardsService } from "../boards.service";
 export class ProjectEditComponent implements OnInit {
 
   constructor(public ct: ColorThemeService,
-              public bs: BoardsService) { }
+              public bs: BoardsService,
+              private location: Location) { }
 
   ngOnInit() {
   }
@@ -28,6 +30,10 @@ export class ProjectEditComponent implements OnInit {
 
   editProject(){
     this.bs.editProject(this.np);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
