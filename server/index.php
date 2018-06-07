@@ -47,6 +47,7 @@ $container['db'] = function($container) use ($capsule){
 require __DIR__ . "/app/Routes/Users.php";
 require __DIR__ . "/app/Routes/Projects.php";
 require __DIR__ . "/app/Routes/Tasks.php";
+require __DIR__ . "/app/Routes/Demos.php";
 
 $app->add(function ($req, $res, $next) {
  $response = $next($req, $res);
