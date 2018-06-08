@@ -2,6 +2,7 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Database\QueryException;
+use Firebase\JWT\JWT;
 
 //Get all the demo projects for a admin by adminId
 $app->get('/demoproject/{id}', function (Request $request, Response $response, array $args) {
@@ -22,3 +23,9 @@ $app->get('/demotasks/{project_id}', function (Request $request, Response $respo
 
    return $response->withJson($data, 200);
 });
+
+//Get all the demo tasks for a demo project by project id
+$app->post('/test', function (Request $request, Response $response, array $args) {
+  $foo = $request->getAttribute('data');
+  return $response->withJson($foo, 201);
+})->add( new TokenChecker() );

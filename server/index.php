@@ -1,12 +1,12 @@
 <?php
 
-session_start();
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 require 'vendor/autoload.php';
+require 'app/configs/config.php';
 
 // Create and configure Slim app
 $config = ['settings' => [
@@ -42,6 +42,9 @@ $container['db'] = function($container) use ($capsule){
    return $capsule;
 };
 
+//Middleware
+require __DIR__ . "/app/Middleware/TokenChecker.php";
+
 
 // Pull in all the routes
 require __DIR__ . "/app/Routes/Users.php";
@@ -59,4 +62,4 @@ $app->add(function ($req, $res, $next) {
 
 
 // Run app
-$app->run();;
+$app->run();
