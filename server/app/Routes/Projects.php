@@ -10,10 +10,10 @@ $app->group('', function () use ($app) {
    //Get all the Boards for a user by userId
     $app->get('/project/{id}', function (Request $request, Response $response, array $args) {
 
-       $project_id = $args['id'];
+       $user_id = $args['id'];
        
        //Query the database by user id. This should return array
-       $data = $this->db->table('boards')->where('id', $project_id)->get();
+       $data = $this->db->table('boards')->where('user_id', $user_id)->get();
 
        return $response->withJson($data, 200);
     });

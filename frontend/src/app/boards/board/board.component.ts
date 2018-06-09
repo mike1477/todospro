@@ -14,6 +14,7 @@ export class BoardComponent implements OnInit {
              
 
   ngOnInit() {
+    
     this.boards.getAllProjects();
   }
 

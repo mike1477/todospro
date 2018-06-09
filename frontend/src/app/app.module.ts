@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MessageComponent } from './feedback/message/message.component';
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS} from  '@angular/common/http';
 import { PasswordsMatchDirective } from './users/passwords-match.directive';
 import { ProjectViewComponent } from './boards/project-view/project-view.component';
 import { ProjectCreateComponent } from './boards/project-create/project-create.component';
@@ -22,6 +22,7 @@ import { BoardComponent } from './boards/board/board.component';
 import { DeletedComponent } from './boards/deleted/deleted.component';
 import { ViewDemoComponent } from './demo/view-demo/view-demo.component';
 import { FrontDemoComponent } from './demo/front-demo/front-demo.component';
+import { TokenInterceptorService } from "./auth/token-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,11 @@ import { FrontDemoComponent } from './demo/front-demo/front-demo.component';
     HttpClientModule,
     NgProgressModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

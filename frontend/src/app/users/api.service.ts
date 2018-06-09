@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from "./user.model";
 import { Status } from "./status.model";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
- 
+
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { FeedbackService } from "../feedback/feedback.service";
@@ -13,6 +13,7 @@ import { Router } from "@angular/router";
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +32,11 @@ export class ApiService {
  /** POST: Login user */
  login (user): Observable<User> {
   return this.http.post<User>(this.loginUrl, user, httpOptions).pipe(
-    tap((user: User) => this.fb.addMessage(`Welcome Back ${user.name}`)),
-    tap(() => this.route.navigate(['/overview'])),
+    tap((user: User) => localStorage.setItem('token', user.token)),
+    tap((user: User) => this.fb.addMessage(`Welcome Back ${user.name}`)),       
     tap(() => this.auth.setlogged(true)),
     tap(() => this.fb.donebar()),
+    tap(() => this.route.navigate(['/overview'])),
     catchError(this.fb.handleError<User>('Login'))
   );
 }

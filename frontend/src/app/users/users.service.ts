@@ -42,6 +42,7 @@ export class UsersService {
     this.fb.startbar();
     this.fb.addMessage("You are logged out");
     this.user = null;
+    localStorage.removeItem('token');
     this.auth.setlogged(false);
     this.route.navigate(['/login']);
     this.fb.donebar();
