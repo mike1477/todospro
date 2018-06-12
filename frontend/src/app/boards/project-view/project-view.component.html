@@ -34,7 +34,7 @@
     <div class="card mb-3 {{theme.getBorderColor(board.currentProject.color_id)}}">
       <div class="card-header">Task Details</div>
       <div class="card-body {{theme.textColor(board.currentProject.color_id)}}">
-        <h5 class="card-title">{{task.title}}</h5>
+        <h5 class="card-title">{{task.title.substr(0, 45)}}</h5>
         <p class="card-text">{{task.description}}</p>
       </div>
       <div class="card-footer">

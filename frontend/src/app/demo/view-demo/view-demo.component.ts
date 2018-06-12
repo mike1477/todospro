@@ -9,8 +9,8 @@ import { ColorThemeService } from "../../boards/color-theme.service";
 })
 export class ViewDemoComponent implements OnInit {
 
-  constructor(private ds : DemoService,
-             private theme : ColorThemeService) { }
+  constructor(public ds : DemoService,
+             public theme : ColorThemeService) { }
 
   ngOnInit() {
   }

@@ -9,7 +9,7 @@ import { ColorThemeService } from "../color-theme.service"
 })
 export class TaskViewComponent implements OnInit {
 
-  constructor(private board: BoardsService,
+  constructor(public board: BoardsService,
                public theme: ColorThemeService) { }
 
   ngOnInit() {

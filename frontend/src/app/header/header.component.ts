@@ -10,7 +10,7 @@ import { UsersService } from "../users/users.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth: LoggedInService,
+  constructor(public auth: LoggedInService,
               private user: UsersService) { }
 
   ngOnInit() {

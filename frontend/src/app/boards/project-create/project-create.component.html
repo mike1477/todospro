@@ -6,8 +6,8 @@
      <form #createProjectForm="ngForm" (ngSubmit)="newProject()">
 
        <div class="form-group row">
-         <label for="ProjectName" class="col-lg-3 col-form-label card-text">Project Name</label>
-         <div class="col-lg-9">
+         <label for="ProjectName" class="col-lg-4 col-form-label card-text">Project Name</label>
+         <div class="col-lg-8">
            <input type="text" required id="title" name="title" value="title" [(ngModel)]="np.title"      
              class="form-control" placeholder="Project Name" #title="ngModel">
            <div class="error" *ngIf="title.errors?.required && title.touched">        
@@ -17,8 +17,8 @@
        </div>
 
        <div class="form-group row">
-         <label for="projectDescription" class="col-lg-3 col-form-label card-text">Description</label>
-         <div class="col-lg-9">
+         <label for="projectDescription" class="col-lg-4 col-form-label card-text">Description</label>
+         <div class="col-lg-8">
            <textarea rows="5" class="form-control" value="description"[(ngModel)]="np.description"
              id="description"  name="description" placeholder="Project Description">
            </textarea>
@@ -26,8 +26,8 @@
        </div>
 
        <div class="form-group row">
-         <label for="projecttheme" class="col-lg-3 col-form-label card-text">Theme Color</label>
-         <div class="col-lg-9">
+         <label for="projecttheme" class="col-lg-4 col-form-label card-text">Theme Color</label>
+         <div class="col-lg-8">
            <select class="form-control form-control-sm" [(ngModel)]="np.color_id" name="color">
              <option *ngFor="let theme of colorThemes" [value]="theme.id">
                {{theme.name}}

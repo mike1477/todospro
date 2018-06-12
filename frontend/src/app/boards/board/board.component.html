@@ -1,8 +1,8 @@
 <div class="row">
-      <section class="col-md-6">
+      <section class="col-xl-6 cards-outer">
           <app-project-create></app-project-create>
       </section>
-    <section class="col-md-6">
+    <section class="col-xl-6 cards-outer" >
       <div class="card text-center">
         <div class="card-header">
           All Projects
@@ -12,7 +12,7 @@
 
             <li class="list-group-item border-left {{theme.getBorderColor(project.color_id)}} text-left" 
             *ngFor="let project of boards.allProjects">
-            {{project.title}}
+            {{project.title.substr(0, 45)}}
               <a routerLink="/view" (click)="viewProject(project)" title ="View Project" class="float-right btn {{theme.getButtonBorder(project.color_id)}}">
                 <i class="fas fa-search"></i>
               </a>

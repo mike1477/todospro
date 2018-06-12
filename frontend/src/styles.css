@@ -52,4 +52,6 @@
 .board-cards::-webkit-scrollbar-thumb:hover {
     background: #ffc107;
 }
-  
+.cards-outer{
+    margin-bottom: 30px;
+}

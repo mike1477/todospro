@@ -4,4 +4,9 @@
   .boardsLink{
     margin-left: 40px;
   }
- 
+
+  @media screen and (max-width: 991.98px) {
+    .boardsLink{
+      margin-left: 0px;
+    }
+}

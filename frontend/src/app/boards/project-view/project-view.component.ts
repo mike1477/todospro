@@ -10,7 +10,7 @@ import { ColorThemeService } from "../color-theme.service";
 })
 export class ProjectViewComponent implements OnInit {
 
-  constructor(private board: BoardsService,
+  constructor(public board: BoardsService,
               public route: Router,
               public theme: ColorThemeService) { }
 

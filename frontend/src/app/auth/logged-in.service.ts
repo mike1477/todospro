@@ -7,7 +7,7 @@ export class LoggedInService {
 
   constructor() { }
 
-  private loggedIn: boolean = false;
+  public loggedIn: boolean = false;
 
   setlogged(bool:boolean) {
     this.loggedIn = bool;
