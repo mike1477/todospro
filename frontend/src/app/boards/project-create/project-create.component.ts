@@ -19,7 +19,6 @@ export class ProjectCreateComponent implements OnInit {
   colorThemes = this.ct.colorThemes;
 
   np: Project = {
-    id: 1,
     color_id : 1,
     title: '',
     description: '',

@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { AllProjects, CreateProject, EditProject, NewTask, AllTasks, UpdateTask } from "./models";
+import { AllProjects, CreateProject, EditProject, NewTask, AllTasks, UpdateTask, CreatedProject } from "./models";
 import { FeedbackService } from "../feedback/feedback.service";
 
 const httpOptions = {
@@ -41,8 +41,8 @@ export class ApiService {
 
   }
 
-  createProject(newProject: CreateProject): Observable<any>{
-    return this.http.post(this.createProjectUrl, newProject, httpOptions).pipe(
+  createProject(newProject: CreateProject): Observable<CreatedProject>{
+    return this.http.post<CreatedProject>(this.createProjectUrl, newProject, httpOptions).pipe(
       tap(_ => this.route.navigate(['/view'])),
       tap(_ => this.fb.addMessage("Project Created")),
       tap(_ => this.fb.donebar()),

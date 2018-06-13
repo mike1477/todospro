@@ -1,10 +1,20 @@
 import { Timestamp } from "rxjs/internal/operators/timestamp";
 
 export interface Project{
-    id: number,
+   // id: number,
     title: string,
     description: string,
     color_id : number
+}
+
+export interface CreatedProject{
+    id: number,
+    user_id: number,
+    color_id: number,
+    title: string,
+    description: string,
+    created_at: string,
+    updated_at: string
 }
 
 export interface ThemeColor{

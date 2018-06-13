@@ -6,7 +6,8 @@
   </div>
   <div class="card-footer">
 
-    <a routerLink="/createtask" class="btn btn-outline-light navbut" title ="Create new task">
+    <a routerLink="/createtask" (click)="passProject(board.currentProject)" 
+    class="btn btn-outline-light navbut" title ="Create new task">
       New Todo <i class="fas fa-plus"></i>
     </a>
 

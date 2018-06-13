@@ -67,7 +67,7 @@ export class BoardsService{
     this.fb.addMessage("Creating Project");
   
     this.api.createProject(this.newProject)
-    .subscribe();
+    .subscribe(project => this.currentProject = project);
      
   }
 
@@ -119,7 +119,6 @@ export class BoardsService{
       description: newTask.description,
       project_id: project_id
     }
-
     this.currentTask = this.newTask;
     this.fb.addMessage("Creating Task");
   

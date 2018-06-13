@@ -27,7 +27,7 @@ $app->group('', function () use ($app) {
       $color_id     = $request->getParam('color_id');
 
       try {
-        $this->db->table('boards')->insert(
+        $bool = $this->db->table('boards')->insert(
           [
             'title'       => $title,
             'description' => $description,
@@ -36,7 +36,13 @@ $app->group('', function () use ($app) {
          ]
         );
 
-          return $response->withJson(array('status' => 'success'), 201);
+        if($bool){
+          $data = $this->db->table('boards')->where('user_id', $user_id)->get();
+          $datalength = count($data) -1 ;
+
+        }
+
+          return $response->withJson($data[$datalength] , 201);
       } catch (QueryException $e) {
             return $response->withJson(array('status' => 'failed'), 404);
       }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from "../models";
 import { ColorThemeService } from "../color-theme.service";
 import { BoardsService } from "../boards.service";
 import { Location } from '@angular/common';
@@ -21,7 +20,7 @@ export class ProjectEditComponent implements OnInit {
 
   colorThemes = this.ct.colorThemes;
   
-  np: Project = {
+  np= {
     id : this.bs.currentProject.id,
     title: this.bs.currentProject.title,
     description: this.bs.currentProject.description,
