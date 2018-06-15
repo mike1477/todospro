@@ -7,10 +7,13 @@
               <label for="username" class="col-sm-3 col-form-label">Username</label>
               <div class="col-sm-9">
                 <input type="text" [(ngModel)]="newUser.username" name="username" class="form-control" 
-                id="username" placeholder="Username" #username="ngModel" required>
+                id="username" placeholder="Username" #username="ngModel" required  uniqueUsername>
                 <div class="error" *ngIf="username.errors?.required && username.touched">
                     Username is required.
                 </div>
+                <div class="error" *ngIf="username.errors?.uniqueUsername" >
+                    This username is taken. Please choose a different username.      
+              </div>   
               </div>
             </div>
 

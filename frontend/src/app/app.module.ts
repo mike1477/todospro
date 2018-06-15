@@ -23,6 +23,7 @@ import { DeletedComponent } from './boards/deleted/deleted.component';
 import { ViewDemoComponent } from './demo/view-demo/view-demo.component';
 import { FrontDemoComponent } from './demo/front-demo/front-demo.component';
 import { TokenInterceptorService } from "./auth/token-interceptor.service";
+import { UsernameExistsDirective } from './users/username-exists.directive';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TokenInterceptorService } from "./auth/token-interceptor.service";
     DeletedComponent,
     ViewDemoComponent,
     FrontDemoComponent,
+    UsernameExistsDirective,
   ],
   imports: [
     BrowserModule,

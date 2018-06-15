@@ -68,8 +68,22 @@ $app->post('/register', function (Request $request, Response $response) {
   }
 });
 
+ $app->get('/username/{searchValue}', function(Request $request, Response $response, array $args){
+
+    $result = $this->db->table('users')->
+    where('username', $args['searchValue'])->
+    first();
+    if($result == null){
+      return $response->withJson(array('result' => false), 201);
+    }
+
+    return $response->withJson(array('result' => true), 201);
+    
+  });
+
 
 $app->group('', function () use ($app) {
+
     //Update User
   $app->put('/updateuser', function (Request $request, Response $response) {
     $dt = $request->getAttribute('data');

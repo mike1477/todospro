@@ -36,8 +36,8 @@
     <div class="card mb-3 {{theme.getBorderColor(ds.currentProject.color_id)}}">
       <div class="card-header">Task Details</div>
       <div class="card-body {{theme.textColor(ds.currentProject.color_id)}}">
-        <h5 class="card-title">{{task.title.substr(0, 45)}}</h5>
-        <p class="card-text">{{task.description}}</p>
+        <h5 class="card-title">{{ task.title.substr(0, 45) }}</h5>
+        <p class="card-text">{{ task.description.substr(0, 45) }}</p>
       </div>
       <div class="card-footer">
         <a routerLink="/register"  class="btn {{theme.getButtonBorder(ds.currentProject.color_id)}} navbut" title="Edit Task"><i class="fas fa-edit"></i></a>

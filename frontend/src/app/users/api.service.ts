@@ -28,6 +28,7 @@ export class ApiService {
   private loginUrl    = "http://localhost/sv/login";
   private registerUrl = "http://localhost/sv/register";
   private updateUrl   = "http://localhost/sv/updateuser";
+  private usernameUrl   = "http://localhost/sv/username/";
 
  /** POST: Login user */
  login (user): Observable<User> {
@@ -60,6 +61,11 @@ updateUser (updatedUser): Observable<any> {
     tap(() => this.route.navigate(['/login'])),
     catchError(this.fb.handleError<any>('update'))
   );
+}
+
+usernameChecker(username: string): Observable<any>{
+    return this.http.get(this.usernameUrl + username);
+      
 }
 
 
