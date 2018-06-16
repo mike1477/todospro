@@ -9,22 +9,26 @@
   
       <a routerLink="/edittask" (click)="editTask(board.currentTask)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut" 
         title="Edit Project">
-         Edit Task <i class="fas fa-edit"></i>
+        <span class="button-text">  Edit Task </span>
+        <i class="fas fa-edit"></i>
       </a>
   
       <a routerLink="" (click)="board.deleteTask(board.currentTask)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
        title ="Delete Project">
-         Delete Task <i class="fas fa-trash"></i>
+       <span class="button-text"> Delete Task </span>
+          <i class="fas fa-trash"></i>
       </a>
   
       <a routerLink="/overview" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
        title ="Boards Page">
-         Boards Page <i class="fas fa-folder-open"></i>
+       <span class="button-text">Boards Page</span>
+       <i class="fas fa-folder-open"></i>
       </a>
   
       <a routerLink="/view" (click)="viewProject(board.currentProject)" class="btn {{theme.getButtonBorder(board.currentProject.color_id)}} navbut"
        title ="Project Page">
-         Project Page <i class="fas fa-folder-open"></i>
+       <span class="button-text">  Project Page </span>
+       <i class="fas fa-folder-open"></i>
       </a>
 
     </div>

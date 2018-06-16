@@ -8,22 +8,26 @@
 
     <a routerLink="/createtask" (click)="passProject(board.currentProject)" 
     class="btn btn-outline-light navbut" title ="Create new task">
-      New Todo <i class="fas fa-plus"></i>
+    <span class="button-text"> New Todo </span>
+     <i class="fas fa-plus"></i>
     </a>
 
     <a routerLink="/edit" class="btn btn-outline-light navbut" 
     (click)="passProject(board.currentProject)"  title="Edit Project">
-       Edit Project <i class="fas fa-edit"></i>
+    <span class="button-text">  Edit Project  </span>
+    <i class="fas fa-edit"></i>
     </a>
 
     <a routerLink="/delete" class="btn btn-outline-light navbut"
      title ="Delete Project">
-       Delete Project <i class="fas fa-trash"></i>
+     <span class="button-text"> Delete Project </span>
+     <i class="fas fa-trash"></i>
     </a>
 
     <a routerLink="/overview" class="btn btn-outline-light navbut"
      title ="Boards Page">
-       Boards Page <i class="fas fa-folder-open"></i>
+     <span class="button-text"> Boards Page </span>
+      <i class="fas fa-folder-open"></i>
     </a>
 
   
@@ -31,7 +35,7 @@
 </div>
 <section class="row">
 
-  <section class="col-sm-6"  *ngFor="let task of board.allTasks">
+  <section class="col-md-6"  *ngFor="let task of board.allTasks">
     <div class="card mb-3 {{theme.getBorderColor(board.currentProject.color_id)}}">
       <div class="card-header">Task Details</div>
       <div class="card-body {{theme.textColor(board.currentProject.color_id)}}">
