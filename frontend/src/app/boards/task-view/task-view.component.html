@@ -1,5 +1,16 @@
 <div class="card {{theme.getBorderColor(board.currentProject.color_id)}} mb-3" >
-    <div class="card-header">Task Details</div>
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Task Details</p>
+              </div>
+              <div class="col-md-6">
+                <p class="text-right">
+                   Date Created {{board.currentTask.created_at | date}}
+                </p>
+              </div>
+        </div>
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{board.currentTask.title}}</h5>
       <p class="card-text">{{board.currentTask.description}}</p>

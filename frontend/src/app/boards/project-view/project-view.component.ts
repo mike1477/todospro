@@ -16,6 +16,7 @@ export class ProjectViewComponent implements OnInit {
 
   ngOnInit() {
     this.board.getAllTasks();
+    
   }
 
    passProject(project:any){
