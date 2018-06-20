@@ -20,6 +20,7 @@ $app->group('', function () use ($app) {
     $app->post('/createtask', function (Request $request, Response $response) {
       $title        = $request->getParam('title');
       $description  = $request->getParam('description');
+      $progress_id  = $request->getParam('progress_id');
       $parent     = $request->getParam('project_id');
 
 
@@ -28,6 +29,7 @@ $app->group('', function () use ($app) {
           [
             'title'       => $title,
             'description' => $description,
+            'progress_id' => $progress_id,
             'board_id'    => $parent,
          ]
         );
@@ -43,13 +45,15 @@ $app->group('', function () use ($app) {
       $id           = $request->getParam('id');
       $title        = $request->getParam('title');
       $description  = $request->getParam('description');
+      $progress_id  = $request->getParam('progress_id');
 
 
       try {
         $this->db->table('tasks')->where('id', $id)->update(
           [
             'title'       => $title,
-            'description' => $description
+            'description' => $description,
+            'progress_id' => $progress_id
          ]
         );
 

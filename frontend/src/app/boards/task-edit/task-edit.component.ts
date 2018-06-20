@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColorThemeService } from "../color-theme.service";
 import { BoardsService } from "../boards.service";
 import { Location } from '@angular/common';
+import { ProgressService } from "../progress.service";
 
 @Component({
   selector: 'app-task-edit',
@@ -11,7 +12,8 @@ import { Location } from '@angular/common';
 export class TaskEditComponent implements OnInit {
 
   constructor(public board : BoardsService,
-              private location: Location) { }
+              private location: Location,
+              public progress : ProgressService) { }
 
   ngOnInit() {
   }
@@ -22,6 +24,7 @@ export class TaskEditComponent implements OnInit {
   np = {
     title: this.board.currentTask.title,
     description: this.board.currentTask.description,
+    progress_id: this.board.currentTask.progress_id
   }
 
   editTask(){

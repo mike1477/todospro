@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColorThemeService } from "../color-theme.service";
 import { BoardsService } from "../boards.service";
 import { Location } from '@angular/common';
+import { ProgressService } from "../progress.service";
 
 @Component({
   selector: 'app-task-create',
@@ -12,16 +13,18 @@ import { Location } from '@angular/common';
 export class TaskCreateComponent implements OnInit {
 
   constructor(public board : BoardsService,
-              private location: Location) { }
+              private location: Location,
+              public progress : ProgressService) { }
 
   ngOnInit() {
   }
 
-
+  progressInfo = this.progress.progressInfo;
 
   np = {
     title: '',
     description: '',
+    progress_id: 1
   }
 
 

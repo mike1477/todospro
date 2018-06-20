@@ -49,6 +49,7 @@ export interface AllProjects{
 export interface NewTask{
     title:string,
     description:string,
+    progress_id:number,
     project_id: number
 }
 
@@ -64,5 +65,12 @@ export interface AllTasks{
 export interface UpdateTask{
     id:number,
     title: string,
-    description: string
+    description: string,
+    progress_id: number
+}
+
+export interface ProgressInfo{
+   id:number,
+   name:string,
+   class:string
 }

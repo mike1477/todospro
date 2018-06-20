@@ -1,5 +1,16 @@
 <div class="card text-white mb-3 {{theme.getBackgroundColor(ds.currentProject.color_id)}}" >
-  <div class="card-header">Project Details</div>
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-6">
+          <p>Project Details</p>
+        </div>
+        <div class="col-md-6">
+          <p class="text-right">
+             Date Created {{ds.currentProject.created_at | date}}
+          </p>
+        </div>
+   </div>
+  </div>
   <div class="card-body">
     <h5 class="card-title">{{ds.currentProject.title}}</h5>
     <p class="card-text">{{ds.currentProject.description}}</p>

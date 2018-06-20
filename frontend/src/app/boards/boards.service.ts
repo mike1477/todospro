@@ -117,6 +117,7 @@ export class BoardsService{
     this.newTask= {
       title: newTask.title,
       description: newTask.description,
+      progress_id: newTask.progress_id,
       project_id: project_id
     }
     this.currentTask = this.newTask;
@@ -151,7 +152,8 @@ export class BoardsService{
     this.updateTask = {
       id: this.currentTask.id,
       title: updateTask.title,
-      description: updateTask.description
+      description: updateTask.description,
+      progress_id: updateTask.progress_id
     }
     this.fb.addMessage("Editing Task ...");
 
