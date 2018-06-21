@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BoardsService } from "../boards.service";
 import { ColorThemeService } from "../color-theme.service";
 import { ProgressService } from "../progress.service";
+import { PriorityService } from "../priority.service";
 
 @Component({
   selector: 'app-task-view',
@@ -12,7 +13,8 @@ export class TaskViewComponent implements OnInit {
 
   constructor(public board: BoardsService,
                public theme: ColorThemeService,
-               public progress : ProgressService) { }
+               public progress : ProgressService,
+               public priority : PriorityService) { }
 
   ngOnInit() {
   }

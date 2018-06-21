@@ -118,7 +118,8 @@ export class BoardsService{
       title: newTask.title,
       description: newTask.description,
       progress_id: newTask.progress_id,
-      project_id: project_id
+      project_id: project_id,
+      priority_id: newTask.priority_id
     }
     this.currentTask = this.newTask;
     this.fb.addMessage("Creating Task");
@@ -153,7 +154,8 @@ export class BoardsService{
       id: this.currentTask.id,
       title: updateTask.title,
       description: updateTask.description,
-      progress_id: updateTask.progress_id
+      progress_id: updateTask.progress_id,
+      priority_id: updateTask.priority_id
     }
     this.fb.addMessage("Editing Task ...");
 

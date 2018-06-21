@@ -14,7 +14,12 @@
     <div class="card-body">
       <h5 class="card-title">{{board.currentTask.title}}</h5>
       <p class="card-text">{{board.currentTask.description}}</p>
-      <p class="card-text {{progress.getTextColor(board.currentTask.progress_id)}}">{{progress.getProgress(board.currentTask.progress_id)}}</p>
+      <p class="card-text {{progress.getTextColor(board.currentTask.progress_id)}}">
+        Progress Status : {{progress.getProgress(board.currentTask.progress_id)}}
+      </p>
+      <p class="card-text {{priority.getTextColor(board.currentTask.priority_id)}}">
+          Priority Status : {{priority.getPriority(board.currentTask.priority_id)}}
+      </p>
     </div>
     <div class="card-footer">
 

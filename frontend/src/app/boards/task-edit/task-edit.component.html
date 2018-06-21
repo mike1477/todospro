@@ -26,11 +26,22 @@
          </div>
 
          <div class="form-group row">
-          <label for="taskProgress" class="col-lg-3 col-form-label card-text">Task Progress</label>
+          <label for="taskProgress" class="col-lg-3 col-form-label card-text">Progress Status </label>
           <div class="col-lg-9">
             <select class="form-control form-control-sm" [(ngModel)]="np.progress_id" name="progress">
               <option *ngFor="let progress of progress.progressInfo" [value]="progress.id">
                 {{progress.name}}
+               </option>
+           </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="taskPriority " class="col-lg-3 col-form-label card-text">Priority Status</label>
+          <div class="col-lg-9">
+            <select class="form-control form-control-sm" [(ngModel)]="np.priority_id" name="priority">
+              <option *ngFor="let priority  of priority.priorityInfo" [value]="priority.id">
+                {{priority.name}}
                </option>
            </select>
           </div>

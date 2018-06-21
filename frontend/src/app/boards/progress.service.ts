@@ -16,15 +16,6 @@ export class ProgressService {
     
   ];
 
-  // getBackgroundColor(id:number){
-  //   for (var i = 0; i < this.colorThemes.length; i++) {
-  //      if( this.colorThemes[i].id == id){
-  //         return "bg-"+ this.colorThemes[i].class;
-  //      }      
-  //   }
-  //   return null;
-  // }
-
   getTextColor(id:number){
     for (var i = 0; i < this.progressInfo.length; i++) {
        if( this.progressInfo[i].id == id){
